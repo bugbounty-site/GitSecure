@@ -1,0 +1,5 @@
+name: 'DataSecure'
+description: 'Detect exposed API Keys.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
