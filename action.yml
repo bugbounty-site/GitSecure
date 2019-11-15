@@ -1,5 +1,10 @@
 name: 'DataSecure'
 description: 'Detect exposed API Keys.'
+inputs:
+  slack_hook:
+    description: "Slack webhook to send alert to"
+    required: true
+    default: "https://google.com"
 runs:
   using: 'docker'
   image: 'Dockerfile'
