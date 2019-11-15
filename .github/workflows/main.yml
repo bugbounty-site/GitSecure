@@ -10,4 +10,4 @@ jobs:
     - name: CodeAnalysis
       uses: bugbounty-site/DataSecure@master
       with:
-	slack_hook = "${{ secrets.SLACK }}"
+	slack_hook = "${{ secrets.SLACK_TOKEN }}"
