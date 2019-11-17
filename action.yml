@@ -3,7 +3,7 @@ description: 'Detect exposed API Keys.'
 inputs:
   slack_hook:
     description: "Slack webhook to send alert to"
-    required: true
+    required: false
     default: "https://google.com"
 runs:
   using: 'docker'
