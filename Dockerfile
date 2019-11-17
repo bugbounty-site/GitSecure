@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
+COPY codes/* /
 
 RUN apt-get update && \
     apt-get upgrade -y && \
