@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get install -y git && \
     apt-get install -y curl && \
     apt-get install -y python3-dev python3-pip && \
-    pip3 install requests --user && \
+    pip3 install requests && \
     chmod +x /entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
