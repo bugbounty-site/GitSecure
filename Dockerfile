@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git && \
     apt-get install -y curl && \
-    apt-get install python3-dev python3-pip && \
+    apt-get install -y python3-dev python3-pip && \
     pip3 install requests --user && \
     chmod +x /entrypoint.sh
 
