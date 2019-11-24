@@ -8,15 +8,14 @@ def getRegex():
 	regex = requests.get('https://raw.githubusercontent.com/dxa4481/truffleHogRegexes/master/truffleHogRegexes/regexes.json').json()
 
 def matchRegex(line):
-	print(line)
-	for index, regexes in enumerate(regex.items()):
-		print(regexes)
+	for index, regexes in enumerate(regex.values()):
+		#print(regexes)
 		pythonReg = re.compile(regexes)
 		# patern match regex in python
 		match = pythonReg.search(line)
 		# if match is not empty (has valid regex token)
-		print(match)
-		if not match:
+		if match is not None:
+			print(line)
 			#do nothing		
 		# get tge index
 		# get the key for the index
@@ -29,8 +28,10 @@ def matchRegex(line):
 	#	print('Match found')
 
 def readFile(file):
-	#f = open('{dir}/{file}'.format(dir = directory, file = file))
-	print(file)
+	f = open('{dir}/{file}'.format(dir = directory, file = file))
+	lines = f.readlines()
+	for line in lines:
+		matchRegex(line.strip())
 
 
 if __name__=="__main__":
