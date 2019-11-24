@@ -24,7 +24,7 @@ def matchRegex(line):
 	return matchedArray
 
 def readFile(file):
-	f = open('{dirs}/{file}'.format(dirs = directory, file = file))
+	f = open('{dirs}/{file}'.format(dirs = directory, file = file), encoding='utf-8')
 	lines = f.readlines()
 	for index, line in enumerate(lines):
 		matched = matchRegex(line.strip())
