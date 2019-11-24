@@ -5,7 +5,7 @@ FROM ubuntu:16.04
 COPY entrypoint.sh /entrypoint.sh
 
 COPY codes/analyze.py /analyze.py
-COPY /github/workspace /checkcodes
+
 # setting up docker instance.
 RUN apt-get update && \
     apt-get upgrade -y && \
