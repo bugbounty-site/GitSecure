@@ -8,24 +8,21 @@ def getRegex():
 	regex = requests.get('https://raw.githubusercontent.com/dxa4481/truffleHogRegexes/master/truffleHogRegexes/regexes.json').json()
 
 def matchRegex(line):
-	for index, regexes in enumerate(regex.values()):
+	# create an array for returning matched keys
+	matchedArray = []
+	# for each key value pair in the dictionary (an item is a set of key/value pairs)
+	for key, values in regex.items():
 		#print(regexes)
-		pythonReg = re.compile(regexes)
+		pythonReg = re.compile(values)
 		# patern match regex in python
 		match = pythonReg.search(line)
 		# if match is not empty (has valid regex token)
 		if match is not None:
 			print(line)
-			#do nothing		
-		# get tge index
-		# get the key for the index
-		# regex.keys()[index] key type for the matched value index
-		# append to matched array that will be returned
-		#matchedArray.append(regex.keys()[index])
-
-
-	#for match in re.findeiter(reg, line):
-	#	print('Match found')
+			# append the key to the matched array so we track the instance of where plaintext token was found
+			matchedArray.append(key)
+		# return the array
+		return matchedArray
 
 def readFile(file):
 	f = open('{dir}/{file}'.format(dir = directory, file = file))
