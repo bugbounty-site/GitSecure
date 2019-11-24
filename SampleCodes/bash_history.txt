@@ -12,3 +12,4 @@ touch credentials.txt
 echo "username=root\npassword=S3cretUISHJ3193@#12" >> creds.txt
 sudo apt-install mysql-server mysql-client
 cat /etc/passwd
+cat /logs

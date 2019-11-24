@@ -24,7 +24,7 @@ def matchRegex(line):
 		return matchedArray
 
 def readFile(file):
-	f = open('{dir}/{file}'.format(dir = directory, file = file))
+	f = open('/github/workspace/{file}'.format(file = file))
 	lines = f.readlines()
 	for index, line in enumerate(lines):
 		matched = matchRegex(line.strip())
@@ -35,12 +35,13 @@ def readFile(file):
 if __name__=="__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--files', dest='filesToCheck', nargs="+") # adds all files passed into an array. The files are retrieved from git diff
-	parser.add_argument('--repoloc', dest='dir') # gets argument from repoloc and assigns it to a string.
+	parser.add_argument('--repoloc', dest='dirs') # gets argument from repoloc and assigns it to a string.
 	args = parser.parse_args()
 	global directory
-	directory = args.dir
+	directory = args.dirs
 	getRegex()
 	pool = multiprocessing.Pool(10)
-	pool.map_async(readFile, args.filesToCheck)
+	runPool = pool.map_async(readFile, args.filesToCheck)
+	runPool.get()
 	pool.close()
 	pool.join()
