@@ -12,7 +12,6 @@ def matchRegex(line):
 	matchedArray = []
 	# for each key value pair in the dictionary (an item is a set of key/value pairs)
 	for key, values in regex.items():
-		print(values)
 		#print(regexes)
 		pythonReg = re.compile(values)
 		# patern match regex in python
@@ -22,7 +21,7 @@ def matchRegex(line):
 			# append the key to the matched array so we track the instance of where plaintext token was found
 			matchedArray.append(key)
 		# return the array
-		return matchedArray
+	return matchedArray
 
 def readFile(file):
 	f = open('{dirs}/{file}'.format(dirs = directory, file = file))
