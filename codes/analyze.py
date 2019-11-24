@@ -18,6 +18,7 @@ def matchRegex(line):
 		match = pythonReg.search(line)
 		# if match is not empty (has valid regex token)
 		if match is not None:
+			print(line)
 			# append the key to the matched array so we track the instance of where plaintext token was found
 			matchedArray.append(key)
 		# return the array
@@ -27,7 +28,6 @@ def readFile(file):
 	f = open('{dirs}/{file}'.format(dirs = directory, file = file))
 	lines = f.readlines()
 	for index, line in enumerate(lines):
-		print(line.strip())
 		matched = matchRegex(line.strip())
 		if len(matched) > 0:
 			print('Found {matches} in line {lineNum} of {fileName}'.format(matches = ','.join(matched), lineNum = index+1, fileName = file))

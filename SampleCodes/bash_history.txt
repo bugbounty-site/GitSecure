@@ -1,4 +1,4 @@
-ls -a
+ls -la
 mkdir systemTest
 touch systemTest/commands.py
 python commands.py
