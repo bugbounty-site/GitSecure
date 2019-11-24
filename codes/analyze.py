@@ -7,15 +7,29 @@ def getRegex():
 	global regex
 	regex = requests.get('https://raw.githubusercontent.com/dxa4481/truffleHogRegexes/master/truffleHogRegexes/regexes.json').json()
 
-# def matchRegex(line, regex):
-# 	reg = re.compile(regex)
-# 	print(line)
-# 	for match in re.findeiter(reg, line):
-# 		print('Match found')
+def matchRegex(line):
+	# create an array for returning matched keys
+	matchedArray = []
+	# for each key value pair in the dictionary (an item is a set of key/value pairs)
+	for key, values in regex.items():
+		#print(regexes)
+		pythonReg = re.compile(values)
+		# patern match regex in python
+		match = pythonReg.search(line)
+		# if match is not empty (has valid regex token)
+		if match is not None:
+			# append the key to the matched array so we track the instance of where plaintext token was found
+			matchedArray.append(key)
+		# return the array
+		return matchedArray
 
 def readFile(file):
-	#f = open('{dir}/{file}'.format(dir = directory, file = file))
-	print(file)
+	f = open('{dir}/{file}'.format(dir = directory, file = file))
+	lines = f.readlines()
+	for index, line in enumerate(lines):
+		matched = matchRegex(line.strip())
+		if len(matched) > 0:
+			print('Found {matches} in line {lineNum} of {fileName}'.format(matches = ','.join(matched), lineNum = index+1, fileName = file))
 
 
 if __name__=="__main__":
