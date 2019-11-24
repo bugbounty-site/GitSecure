@@ -7,11 +7,26 @@ def getRegex():
 	global regex
 	regex = requests.get('https://raw.githubusercontent.com/dxa4481/truffleHogRegexes/master/truffleHogRegexes/regexes.json').json()
 
-# def matchRegex(line, regex):
-# 	reg = re.compile(regex)
-# 	print(line)
-# 	for match in re.findeiter(reg, line):
-# 		print('Match found')
+def matchRegex(line):
+	print(line)
+	for index, regexes in enumerate(regex.items()):
+		print(regexes)
+		pythonReg = re.compile(regexes)
+		# patern match regex in python
+		match = pythonReg.search(line)
+		# if match is not empty (has valid regex token)
+		print(match)
+		if not match:
+			#do nothing		
+		# get tge index
+		# get the key for the index
+		# regex.keys()[index] key type for the matched value index
+		# append to matched array that will be returned
+		#matchedArray.append(regex.keys()[index])
+
+
+	#for match in re.findeiter(reg, line):
+	#	print('Match found')
 
 def readFile(file):
 	#f = open('{dir}/{file}'.format(dir = directory, file = file))
