@@ -41,6 +41,7 @@ if __name__=="__main__":
 	directory = args.dir
 	getRegex()
 	pool = multiprocessing.Pool(10)
-	pool.map_async(readFile, args.filesToCheck)
+	runPool = pool.map_async(readFile, args.filesToCheck)
+	runPool.get()
 	pool.close()
 	pool.join()
