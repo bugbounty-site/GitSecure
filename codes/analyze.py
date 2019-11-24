@@ -24,11 +24,10 @@ def matchRegex(line):
 		return matchedArray
 
 def readFile(file):
-	print(file)
 	f = open('{dirs}/{file}'.format(dirs = directory, file = file))
 	lines = f.readlines()
-	print(lines)
 	for index, line in enumerate(lines):
+		print(line.strip())
 		matched = matchRegex(line.strip())
 		if len(matched) > 0:
 			print('Found {matches} in line {lineNum} of {fileName}'.format(matches = ','.join(matched), lineNum = index+1, fileName = file))
