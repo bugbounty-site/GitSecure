@@ -1,13 +1,20 @@
 import argparse, multiprocessing, re
-import requests
+import requests, json
 from itertools import product
 
 regex = {}
 results = {"results":[]}
 global args
 def sendMessage():
+	slack_link = 'https://hooks.slack.com/services/{0}'.format(args.url)
+	message = '*Disclosed APIs*\n_Repo name_: *{repoName}*\n'.format(repoName=args.name)
 	if len(results['results']) > 0:
-		print(results)
+		for res in results['results']:
+			file_name = list(res.keys())[0]
+			message += '_File Name_: {filename}\n'.format(filename=file_name)
+			message += '\n'.join(res[file_name])
+	data = {"text":message, "mrkdwn":1}
+	requests.post(slack_link, data = json.dumps(data))
 
 def result(fileResult):
 	for res in fileResult:
@@ -41,9 +48,7 @@ def readFile(file):
 	for index, line in enumerate(lines):
 		matched = matchRegex(line.strip())
 		if len(matched) > 0:
-			#matchFound = {'{linenum}'.format(linenum=index+1):matched}
-			#fileReturn[file].append(matchFound)
-			found = 'Found {matches} in line {lineNum}'.format(matches = ','.join(matched), lineNum = index+1, fileName = file)
+			found = '👉 *Found {matches} in line {lineNum}*'.format(matches = ','.join(matched), lineNum = index+1, fileName = file)
 			fileReturn[file].append(found)
 	if len(fileReturn[file]) > 0:
 		return fileReturn
@@ -54,6 +59,7 @@ if __name__=="__main__":
 	parser.add_argument('--files', dest='filesToCheck', nargs="+") # adds all files passed into an array. The files are retrieved from git diff
 	parser.add_argument('--repoloc', dest='dirs') # gets argument from repoloc and assigns it to a string.
 	parser.add_argument('--repoName', dest='name')
+	parser.add_argument('--url', dest='url')
 	args = parser.parse_args()
 	print('Analysing {repoName}'.format(repoName=args.name))
 	getRegex()

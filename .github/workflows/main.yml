@@ -12,3 +12,5 @@ jobs:
       uses: actions/checkout@v1
     - name: CodeAnalysis
       uses: bugbounty-site/DataSecure@master
+      with:
+        slack_hook: ${{ secrets.slack_webhook }}

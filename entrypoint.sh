@@ -6,4 +6,4 @@ function find_files(){
 }
 
 find_files
-python3 /analyze.py --files $files --repoloc /github/workspace --repoName $repoName
+python3 /analyze.py --files $files --repoloc /github/workspace --repoName $repoName --url $1
