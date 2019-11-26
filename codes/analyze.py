@@ -7,7 +7,7 @@ results = {"results":[]}
 global args
 def sendMessage():
 	slack_link = 'https://hooks.slack.com/services/{0}'.format(args.url)
-	message = '*Disclosed APIs*\n_Repo name_: *{repoName}*\n'.format(repoName=args.name)
+	message = '*Disclosed APIs*\n_Repo name_: {repoName}\n'.format(repoName=args.name)
 	if len(results['results']) > 0:
 		for res in results['results']:
 			file_name = list(res.keys())[0]
