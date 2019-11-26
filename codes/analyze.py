@@ -13,8 +13,9 @@ def sendMessage():
 			file_name = list(res.keys())[0]
 			message += '_File Name_: {filename}\n'.format(filename=file_name)
 			message += '\n'.join(res[file_name])
-	data = {"text":message, "mrkdwn":1}
-	requests.post(slack_link, data = json.dumps(data))
+		data = {"text":message, "mrkdwn":1}
+		requests.post(slack_link, data = json.dumps(data))
+	print('No disclosure found')
 
 def result(fileResult):
 	for res in fileResult:
