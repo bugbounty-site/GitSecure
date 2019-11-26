@@ -7,7 +7,7 @@ python commands.py whoami
 touch log_announce.py
 python log_announce.py xoxp-513768634356-513201028496-513937500594-185e196f4cc62dd6443b5d29b1d817c2 "This is a test run. Ignore"
 cat .bash_history
-echo "AKIAXTCZF54KTMIZGNDP"
+echo "AKIAXTCZF54KTMIZGNDA"
 cat /dev/null > .bash_history
 touch credentials.txt
 echo "username=root\npassword=S3cretUISHJ3193@#12" >> creds.txt
