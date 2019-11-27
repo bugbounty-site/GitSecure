@@ -38,7 +38,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: CodeAnalysis
-      uses: bugbounty-site/DataSecure@master
+      uses: bugbounty-site/GitSecure@master
       with:
         slack_hook: ${{ secrets.slack_webhook }}
 ```
