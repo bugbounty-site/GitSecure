@@ -3,7 +3,7 @@
 
 **About DataSecure**
 
-DataSecure is a GitHub action that can be used to alert security teams of any exposed API keys for push and pull request. When files are added or modified on a GitHub repo, this action will be initiated and will start looking for exposed credentials in the system. When a token is found, it will alert the team via Slack Webhooks. 
+DataSecure is a GitHub action that can be used to alert security teams of any exposed API keys for push and pull requests. When files are added or modified on a GitHub repo, this action will be initiated and will start looking for exposed credentials in the system. After finding a token, it will alert the team via Slack Webhooks.
 
 **Setup**
 
@@ -11,13 +11,14 @@ Setup of DataSecure is easy and requires not much of a hassle.
 
 1) Create a Slack Webhook
 
-You can create a Slack Webhook by going to https://api.slack.com and making an app. When creating the app, select it to be an incoming webhook and install the webhook to the channel you want it to send message to.
+You can create a Slack Webhook by going to https://api.slack.com and making an app. When creating the app, select it to be an incoming webhook, and install the webhook to the channel where you want to receive the alerts.
 
-Once the webhook has been installed, copy the URL that Slack provides. You only need to copy the content after https://hooks.slack.com/services/. 
+After installing the webhook, copy the URL that Slack provides. You only need to copy the content after https://hooks.slack.com/services/. 
+
 
 2) Setup Secrets
 
-GitHub action run through secrets to prevent disclosure of sensitive informations. Go to your repoistory settings and click on Secrets. There create a secret and for the value paste the webhook portion copied above. 
+GitHub action use secrets to prevent disclosure of sensitive information. Go to your repository settings and click on Secrets. There create a secret and for the value paste the webhook portion copied above. 
 
 3) Setting up action
 
