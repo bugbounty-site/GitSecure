@@ -1,9 +1,9 @@
-# DataSecure
+# GitSecure
 
 
-**About DataSecure**
+**About GitSecure**
 
-DataSecure is a GitHub action that can be used to alert security teams of any exposed API keys for push and pull requests. When files are added or modified on a GitHub repo, this action will be initiated and will start looking for exposed credentials in the system. After finding a token, it will alert the team via Slack Webhooks.
+GitSecure is a GitHub action that can be used to alert security teams of any exposed API keys for push and pull requests. When files are added or modified on a GitHub repo, this action will be initiated and will start looking for exposed credentials in the system. After finding a token, it will alert the team via Slack Webhooks.
 
 **Setup**
 
