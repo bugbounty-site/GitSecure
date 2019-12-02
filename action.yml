@@ -1,4 +1,4 @@
-name: 'DataSecure'
+name: 'GitSecure'
 description: 'Detect exposed API Keys.'
 inputs:
   slack_hook:
