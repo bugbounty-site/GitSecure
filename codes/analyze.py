@@ -56,6 +56,7 @@ def readFile(file):
 	return None
 
 if __name__=="__main__":
+	print('v2 today')
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--files', dest='filesToCheck', nargs="+") # adds all files passed into an array. The files are retrieved from git diff
 	parser.add_argument('--repoloc', dest='dirs') # gets argument from repoloc and assigns it to a string.
