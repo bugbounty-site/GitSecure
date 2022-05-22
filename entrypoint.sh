@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo 'GitSecure v2 Coming soon'
 function find_files(){
   files=$(git diff --name-only --diff-filter=AM HEAD~1..HEAD /github/workspace)
   repoName=$(cd /github/workspace && git remote get-url origin)
