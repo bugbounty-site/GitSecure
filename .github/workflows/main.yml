@@ -6,6 +6,8 @@ on:
 jobs:
   detect_tests:
     runs-on: ubuntu-latest
+    environment:
+      name: DEPLOYMENT
     name: A workflow to test the work of DataSecure
     steps:
     - name: Checkout
